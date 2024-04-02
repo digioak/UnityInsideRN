@@ -1,0 +1,29 @@
+{
+  "name": "web-integration",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-html": "node scripts/update-html.mjs",
+    "dev:serve": "serve ../Web -p 65535",
+    "build": "tsc && webpack && npm run update-html",
+    "dev:tsc": "tsc --watch --preserveWatchOutput",
+    "dev:webpack": "webpack --watch",
+    "dev": "concurrently -k -p \"{name}:{time}\" -n \"TypeScript,Webpack,Serve\" -c \"cyan.bold,green.bold,magenta.bold\" \"npm:dev:tsc\" \"npm:dev:webpack\" \"npm:dev:serve\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2",
+    "serve": "^14.2.1",
+    "shelljs": "^0.8.5",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.4.3",
+    "webpack-cli": "^5.1.4"
+  },
+  "dependencies": {
+    "date-fns": "^3.6.0"
+  }
+}
